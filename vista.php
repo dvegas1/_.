@@ -1,5 +1,5 @@
 <?php 
-$file= file_get_contents("php://input",true); 
+
 
 //$file="LTE,Android,597 MB,597 MB,100 %,Cargando Via AC";
 if(!empty($_POST['array'])){
@@ -260,14 +260,17 @@ $(document).ready(function() {
 
         //var dataString = 11;
         //var img = '<?php echo $file; ?>';
-        var img = "darwin";
+       // var img = '<?php echo $file; ?>';
+        var file= '<?php echo file_get_contents("php://input",true); ?>'; 
+        //var file='LTE,Android,597 MB,597 MB,100 %,Cargando Via AC';
+        //var img = "darwin";
  
         $.ajax({
             type: "POST",
             url: "vista.php",
-            data: img,
+            data: file,
             success: function() {
-                $('#contenedor').text(img);
+                $('#contenedor').text(file);
             }
         });
     }
@@ -302,15 +305,6 @@ $datos= array_combine($campos, $arrayPost);
 }
 
 
-
-
-foreach ($datos as $k => $v) {
-echo "a la espera todavia";
-  while($k != "A la espera"){
-
-  		break;
-  }
-}
 
 print_r($datos);
 
