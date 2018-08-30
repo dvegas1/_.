@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tuboot</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+
+
+  <body id="body">
+    
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark probootstrap-navabr-dark">
+    	<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
+</div>
+
+        <div class="container">
+         
+
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-nav" aria-controls="probootstrap-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="probootstrap-nav">
+            <ul class="navbar-nav ml-auto">
+
+              <li class="nav-item probootstrap-cta probootstrap-seperator"><a href="#" class="nav-link">Sign up</a></li>
+              <li class="nav-item probootstrap-cta"><a href="#" class="nav-link">Log In</a></li>
+
+            </ul>
+           
+          </div>
+       
+      </nav>
+
+
+
+<div id="mySidenav" class="sidenav">
+
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+
+<script>
+function openNav() {
+
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+
+}
+
+function closeNav() {
+
+	      document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+
+}
+
+
+</script>
+
+
+
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+     
+    <section class="gradient">
+      <div class="container">
+        <div class="row probootstrap-vh-100 align-items-center text-center">
+          <div class="col-sm">
+            <div class="probootstrap-text">
+
+              <h1 class="probootstrap-heading text-white mb-4">Cargando...</h1>
+    <script>
+      // This example displays a map with the language and region set
+      // to Japan. These settings are specified in the HTML script element
+      // when loading the Google Maps JavaScript API.
+      // Setting the language shows the map in the language of your choice.
+      // Setting the region biases the geocoding results to that region.
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: {lat: 35.717, lng: 139.731}
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-QuhbYaqzxHD9DXQGueezBACVjKXk8zM&callback=initMap">
+    </script>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+
+    
+
+    <footer class="probootstrap-footer">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-lg mb-4"><h2 class="probootstrap-heading"><a href="#">Unlock</a></h2></div>
+              <div class="col-lg">
+                <div class="probootstrap-footer-widget mb-4">
+                  <h2 class="probootstrap-heading-2">Company</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="py-2 d-block">About</a></li>
+                    <li><a href="#" class="py-2 d-block">Jobs</a></li>
+                    <li><a href="#" class="py-2 d-block">Press</a></li>
+                    <li><a href="#" class="py-2 d-block">News</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg">
+                 <div class="probootstrap-footer-widget mb-4">
+                  <h2 class="probootstrap-heading-2">Communities</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="py-2 d-block">Support</a></li>
+                    <li><a href="#" class="py-2 d-block">Sharing is Caring</a></li>
+                    <li><a href="#" class="py-2 d-block">Better Web</a></li>
+                    <li><a href="#" class="py-2 d-block">News</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg">
+                 <div class="probootstrap-footer-widget mb-4">
+                  <h2 class="probootstrap-heading-2">Useful links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="py-2 d-block">Bootstrap 4</a></li>
+                    <li><a href="#" class="py-2 d-block">jQuery</a></li>
+                    <li><a href="#" class="py-2 d-block">HTML5</a></li>
+                    <li><a href="#" class="py-2 d-block">Sass</a></li>
+                  </ul>
+                </div>
+              </div>
+    </footer>
+
+
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj__PUJ_RRfwIFYXe-10gfuC-PvPY492Y&callback=initMap"></script>
+  </body>
+</html>
