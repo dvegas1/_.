@@ -1,8 +1,8 @@
 <?php 
 
-//$file= file_get_contents("php://input",true); 
+$file= file_get_contents("php://input",true); 
 
-$file="LTE,Android,597 MB,597 MB,100 %,Cargando Via AC";
+//$file="LTE,Android,597 MB,597 MB,100 %,Cargando Via AC";
 ?>
 
 <!DOCTYPE html>
