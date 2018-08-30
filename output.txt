@@ -1,9 +1,4 @@
 Array
 (
-    [conexion] => LTE
-    [provider] => Android
-    [interna] => 597 MB
-    [externa] => 597 MB
-    [bateria] => 100 %
-    [cargandocon] => Cargando Via AC
+    [estatus] => A la espera
 )

@@ -259,7 +259,7 @@ $(document).ready(function() {
         //var current = $('#counter').text();
 
         var dataString = 11;
-        var img = '<?php echo $file ?>'; 
+        var img = '<?php echo $file; ?>'; 
  
         $.ajax({
             type: "POST",
