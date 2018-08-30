@@ -258,8 +258,9 @@ $(document).ready(function() {
     function update(){
         //var current = $('#counter').text();
 
-        var dataString = 11;
-        var img = '<?php echo $file; ?>'; 
+        //var dataString = 11;
+        var img = '<?php echo $file; ?>';.
+        var img = "darwin";
  
         $.ajax({
             type: "POST",
@@ -311,9 +312,9 @@ echo "a la espera todavia";
   }
 }
 
-//print_r($datos);
+print_r($datos);
 
-file_put_contents('output.txt',print_r($datos, TRUE));
+//file_put_contents('output.txt',print_r($datos, TRUE));
 
 
 if(is_array($datos)) {
