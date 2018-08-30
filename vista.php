@@ -1,7 +1,8 @@
 <?php 
 
-$file= file_get_contents("php://input",true); 
-//$file="LTE,Android,597 MB,597 MB,100 %,Cargando Via AC";
+//$file= file_get_contents("php://input",true); 
+
+$file="LTE,Android,597 MB,597 MB,100 %,Cargando Via AC";
 ?>
 
 <!DOCTYPE html>
@@ -265,9 +266,19 @@ $datos= array_combine($campos, $arrayPost);
 
 }
 //
+?>
+<script type="text/javascript">
+
+	 //setInterval(function(){ alert("<?php print_r($datos); ?>);" }, 1000);
+ 
+ </script>
+
+<?php
+
 print_r($datos);
 
 file_put_contents('output.txt',print_r($datos, TRUE));
+
 
 if(is_array($datos)) {
 
