@@ -12,12 +12,16 @@ var_dump($data);
 <html lang="en">
 
 
+
   <head>
     <title>Admin</title>
     <!--<meta http-equiv="Refresh" content="5;http://127.0.0.1/_in/vista.php"> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+  <script src="js/jquery-3.2.1.slim.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
 
     
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -169,6 +173,9 @@ function closeNav() {
 
 
 
+
+
+
 <div class="container" class="container">
 
 
@@ -245,6 +252,30 @@ if ((include 'p.php') == TRUE) {
 
 
 global  $file;
+?>
+<script type="text/javascript">
+$(document).ready(function() {	
+    function update(){
+        //var current = $('#counter').text();
+
+        var dataString = 11;
+        var img = '<?php echo $file ?>'; 
+ 
+        $.ajax({
+            type: "POST",
+            url: "vista.php",
+            data: img,
+            success: function() {
+                $('#contenedor').text(img);
+            }
+        });
+    }
+ 
+    setInterval(update, 3000);
+});
+</script>
+<?php
+
 
 //$file="LTE,Android,597 MB,597 MB,100 %,Cargando Via AC";
 
@@ -375,11 +406,9 @@ ImprimirDOM("estatusConectado",$v);
 </div>
 </div>
 
-  
 
-<script src="js/jquery-3.3.1.min.js"></script>
  <script src="js/main.js"></script> 
-  <script src="js/jquery-3.2.1.slim.min.js"></script>
+
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   
