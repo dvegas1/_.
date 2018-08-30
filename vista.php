@@ -227,9 +227,6 @@ function ImprimirDOM($campo,$texto){
 //postear();
 
 
-postear();
-function postear() {
-
 /*
 include 'p.php';
 
@@ -320,7 +317,7 @@ ImprimirDOM("estatusConectado",$v);
 
 
 
-}
+
 
 ?>
 
