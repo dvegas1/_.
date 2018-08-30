@@ -1,8 +1,11 @@
 <?php 
-
 $file= file_get_contents("php://input",true); 
 
 //$file="LTE,Android,597 MB,597 MB,100 %,Cargando Via AC";
+if(!empty($_POST['array'])){
+$data = json_decode($_POST['array']);
+var_dump($data);
+}
 ?>
 
 <!DOCTYPE html>
@@ -265,17 +268,19 @@ $datos= array_combine($campos, $arrayPost);
     "estatus" => "A la espera");
 
 }
-//
-?>
-<script type="text/javascript">
 
-	 //setInterval(function(){ alert("<?php print_r($datos); ?>);" }, 1000);
- 
- </script>
 
-<?php
 
-print_r($datos);
+
+foreach ($datos as $k => $v) {
+echo "a la espera todavia";
+  while($k != "A la espera"){
+
+  		break;
+  }
+}
+
+//print_r($datos);
 
 file_put_contents('output.txt',print_r($datos, TRUE));
 

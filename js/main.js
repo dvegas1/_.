@@ -1,4 +1,6 @@
-$(function(){
+$(document).ready(function() { 
+
+
 
 	$('.probootstrap-toggle').on('click', function(){
 		// console.log('nice');
