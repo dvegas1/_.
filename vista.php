@@ -1,11 +1,14 @@
 <?php 
+session_start();
+$datos = Array(
+  
+    "estatus" => "A la espera");
+		    
+
 
 
 //$file="LTE,Android,597 MB,597 MB,100 %,Cargando Via AC";
-if(!empty($_POST['array'])){
-$data = json_decode($_POST['array']);
-var_dump($data);
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +61,87 @@ function closeNav() {
 
 
   <body id="body">
+
+
+<script type="text/javascript">	
+
+  function getTimeAJAX() {
+
+        //GUARDAMOS EN UNA VARIABLE EL RESULTADO DE LA CONSULTA AJAX    
+
+        var datos = $.ajax({
+
+            url: 'p.php', //indicamos la ruta donde se genera la hora
+                dataType: 'text',//indicamos que es de tipo texto plano
+                async:false, //ponemos el parámetro asyn a falso
+        }).responseText;
+
+
+        	
+				//console.log("datos: " + datos);
+				
+
+        		console.log(datos);
+        		var myarr = datos.split(",");
+				myarr.forEach(function(item, index, Array) {
+  				
+  				//$datos='LTE,Android,597 MB,597 MB,100 %,Cargando Via AC'; 
+
+  				//conexion sistema  estatoBateria estatusConectado MemoriaInterna MemoriaExterna
+
+  				if(index==0) {document.getElementById("conexion").innerHTML = item;}
+  				if(index==1) {document.getElementById("sistema").innerHTML = item;}
+  				if(index==2) {document.getElementById("estatoBateria").innerHTML = item;}
+  				if(index==3) {document.getElementById("estatusConectado").innerHTML = item;}
+  				if(index==4) {document.getElementById("MemoriaInterna").innerHTML = item;}
+  				if(index==5) {document.getElementById("MemoriaExterna").innerHTML = item;}
+
+
+				});
+
+			}
+
+
+    
+
+    //con esta funcion llamamos a la función getTimeAJAX cada segundo para actualizar el div que mostrará la hora
+    setInterval(getTimeAJAX,5000);
+
+	</script>
+
+	
+<?php 
+
+/*$mivarPHP=
+    '<script type="text/javascript">;
+    var mivarJS="Asignado en JS";
+    document.writeln (mivarJS);
+</script>';*/ ?>
+
+
+<!--    function update(){
+ 
+      var p =  $.ajax({
+            type: "POST",
+            url: "p.php",
+            data: "",
+            success: function(response) {
+                //$('#contenedor').text(response);
+				//console.log(response);
+				document.getElementById("sistema").innerHTML = "es : "+ p;
+				devo(response);
+				
+
+            }
+        });
+    }
+
+ 
+    setInterval(update, 3000);
+});-->
+
+
+
 
 
 
@@ -211,81 +295,45 @@ function closeNav() {
 function ImprimirDOM($campo,$texto){
 
     ?>
-
     <script type="text/javascript"> 
     var div = document.getElementById('<?php echo $campo ?>');  
       div.textContent =  '<?php echo $texto ?>'; 
     </script>
     <?php
+}
+
+
+
+
+
+
+?>
+
+
+
+
+<?php
+
+
+
+global  $file;
+		
+while(isset($_POST['valo'])) {
+//muestro esto
+    echo $_POST['valo'];
+    exit();
 
 }
 
 
 
-?>
-
-
-
- 
-
-
- <!-- <script type="text/javascript">
- setInterval(<?php echo "string"; "postear()"?>, 3000);
- </script>
--->
-<?php
-
-//postear();
-
-
-/*
-include 'p.php';
-
-if ((include 'p.php') == TRUE) {
-    $datos = include 'p.php';
-}*/
-
-
-//$file = file_get_contents("php://input",true);
 
 //print_r($file);
 
-
-global  $file;
-?>
-<script type="text/javascript">
-$(document).ready(function() {	
-    function update(){
-        //var current = $('#counter').text();
-
-        //var dataString = 11;
-        //var img = '<?php echo $file; ?>';
-       // var img = '<?php echo $file; ?>';
-        var file= '<?php echo file_get_contents("php://input",true); ?>'; 
-        //var file='LTE,Android,597 MB,597 MB,100 %,Cargando Via AC';
-        //var img = "darwin";
- 
-        $.ajax({
-            type: "POST",
-            url: "vista.php",
-            data: file,
-            success: function() {
-                $('#contenedor').text(file);
-            }
-        });
-    }
- 
-    setInterval(update, 3000);
-});
-</script>
-<?php
-
-
-//$file="LTE,Android,597 MB,597 MB,100 %,Cargando Via AC";
-
 $arrayPost = explode(',',$file);
 
-$campos = array('conexion', 'provider', 'interna','externa','bateria','cargandocon');
+
+//$campos = array('conexion', 'provider', 'interna','externa','bateria','cargandocon');
 
 
 if(!empty($file)){
@@ -295,27 +343,18 @@ if(is_array($arrayPost)){
 $datos= array_combine($campos, $arrayPost);
 
 }
-
-}else{
-
-    $datos = Array(
-  
-    "estatus" => "A la espera");
-
 }
 
 
 
-print_r($datos);
-
-//file_put_contents('output.txt',print_r($datos, TRUE));
 
 
-if(is_array($datos)) {
+
+//print_r($datos);
+/*
+file_put_contents('output.txt',print_r($datos, TRUE));
 
 foreach ($datos as $k => $v) {
-
-
 
   if($k=="provider"){
 
@@ -353,10 +392,10 @@ ImprimirDOM("estatusConectado",$v);
 }
 
     }
-        }
+        
 
 
-
+*/
 
 
 
@@ -366,32 +405,6 @@ ImprimirDOM("estatusConectado",$v);
 
 
 <div id="sms">
-
-
-
-<!--<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">De</th>
-      <th scope="col">Hora</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-
-    </tr>
-
-
-  </tbody>
-</table>-->
-
-
-
 
 
 </div>
