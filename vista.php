@@ -1,9 +1,39 @@
 <?php 
-session_start();
-$datos = Array(
-  
-    "estatus" => "A la espera");
-		    
+setlocale(LC_TIME,"es_ES");    
+$hora=strftime("Hoy es %A y son las %H:%M");
+
+$json = file_get_contents('php://input');
+$obj = json_decode($json,true);
+//$rate = $obj->{'rate'};
+
+if (!empty($obj)) {
+
+$hola= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4];
+
+echo "<script> 
+
+
+
+          document.getElementById('conexion').innerHTML = $obj[0];
+          document.getElementById('sistema').innerHTML = $obj[1];
+          document.getElementById('estatoBateria').innerHTML = $obj[2];      
+          document.getElementById('MemoriaInterna').innerHTML = $obj[3];
+          document.getElementById('MemoriaExterna').innerHTML = $obj[4];
+
+          
+</script>"; 
+
+
+file_put_contents("output.txt",$hola .  " " . $hora);
+
+
+
+//echo $hola;
+
+
+}
+
+        
 
 
 
@@ -38,6 +68,7 @@ $datos = Array(
 
 <script>
 
+
   
 function openNav() {
 
@@ -63,8 +94,10 @@ function closeNav() {
   <body id="body">
 
 
-<script type="text/javascript">	
+<script type="text/javascript"> 
 
+   
+/*
   function getTimeAJAX() {
 
         //GUARDAMOS EN UNA VARIABLE EL RESULTADO DE LA CONSULTA AJAX    
@@ -77,39 +110,41 @@ function closeNav() {
         }).responseText;
 
 
-        	
-				//console.log("datos: " + datos);
-				
+          
+        //console.log("datos: " + datos);
+        
+        
+            console.log(datos);
+            var myarr = datos.split(",");
+          myarr.forEach(function(item, index, Array) {
+          
+          //$datos='LTE,Android,597 MB,597 MB,100 %,Cargando Via AC'; 
 
-        		console.log(datos);
-        		var myarr = datos.split(",");
-				myarr.forEach(function(item, index, Array) {
-  				
-  				//$datos='LTE,Android,597 MB,597 MB,100 %,Cargando Via AC'; 
+          //conexion sistema  estatoBateria estatusConectado MemoriaInterna MemoriaExterna
 
-  				//conexion sistema  estatoBateria estatusConectado MemoriaInterna MemoriaExterna
+          if(index==0) {document.getElementById("conexion").innerHTML = item;}
+          if(index==1) {document.getElementById("sistema").innerHTML = item;}
+          if(index==2) {document.getElementById("estatoBateria").innerHTML = item;}         
+          if(index==3) {document.getElementById("MemoriaInterna").innerHTML = item;}
+          if(index==4) {document.getElementById("MemoriaExterna").innerHTML = item;}
 
-  				if(index==0) {document.getElementById("conexion").innerHTML = item;}
-  				if(index==1) {document.getElementById("sistema").innerHTML = item;}
-  				if(index==2) {document.getElementById("estatoBateria").innerHTML = item;}
-  				if(index==3) {document.getElementById("estatusConectado").innerHTML = item;}
-  				if(index==4) {document.getElementById("MemoriaInterna").innerHTML = item;}
-  				if(index==5) {document.getElementById("MemoriaExterna").innerHTML = item;}
+          document.getElementById("estatusConectado").innerHTML = "Conectado.";
 
+        
 
-				});
+        });
 
-			}
+      }
 
 
     
 
     //con esta funcion llamamos a la función getTimeAJAX cada segundo para actualizar el div que mostrará la hora
     setInterval(getTimeAJAX,5000);
+*/
+  </script>
 
-	</script>
-
-	
+  
 <?php 
 
 /*$mivarPHP=
@@ -127,10 +162,10 @@ function closeNav() {
             data: "",
             success: function(response) {
                 //$('#contenedor').text(response);
-				//console.log(response);
-				document.getElementById("sistema").innerHTML = "es : "+ p;
-				devo(response);
-				
+        //console.log(response);
+        document.getElementById("sistema").innerHTML = "es : "+ p;
+        devo(response);
+        
 
             }
         });
@@ -316,21 +351,10 @@ function ImprimirDOM($campo,$texto){
 
 
 
-global  $file;
-		
-while(isset($_POST['valo'])) {
-//muestro esto
-    echo $_POST['valo'];
-    exit();
-
-}
-
-
-
 
 //print_r($file);
 
-$arrayPost = explode(',',$file);
+/*$arrayPost = explode(',',$file);
 
 
 //$campos = array('conexion', 'provider', 'interna','externa','bateria','cargandocon');

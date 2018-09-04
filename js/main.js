@@ -1,6 +1,4 @@
-$(document).ready(function() { 
-
-
+$(function(){
 
 	$('.probootstrap-toggle').on('click', function(){
 		// console.log('nice');
@@ -32,15 +30,7 @@ $("#main").mouseover(function() {
   
 });
 
-$("#main").mouseout(function() {	
 
-	  $("#main").css("background-image", "url('images/1718a076e29822051df8bcf8b5ce1124-logo-de-android-by-vexels.png')");	  
-	  
-		console.log("hola");	  
-  
-  
-  
-});
 
 	
 
