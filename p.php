@@ -3,7 +3,7 @@
 
 
 setlocale(LC_TIME,"es_ES");    
-$hora=strftime("Hoy es %A y son las %H:%M");
+$timestamp = date('Y-m-d G:i:s');
 
  if (file_exists("config.php")) {
     include("config.php");
@@ -18,9 +18,15 @@ if (!$connect) {
   exit;
 }
 
+/*foreach($obj as $clave => $valor) {
+    print "$clave => $valor\n";
+}*/
+
 
 $consulta = ("SELECT * FROM estatusdevice");
 $ejeconsulta= pg_query($connect,$consulta) or die('La consulta fallo: ' . pg_last_error());
+
+
 
 $json = file_get_contents('php://input');
 $obj = json_decode($json,true);
