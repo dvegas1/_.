@@ -1,4 +1,0 @@
-Array
-(
-    [estatus] => A la espera
-)

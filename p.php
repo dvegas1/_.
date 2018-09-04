@@ -5,9 +5,26 @@
 setlocale(LC_TIME,"es_ES");    
 $hora=strftime("Hoy es %A y son las %H:%M");
 
+ if (file_exists("config.php")) {
+    include("config.php");
+  } else {
+    die();
+  }
+
+  $connect = pg_connect("host=ec2-54-243-213-188.compute-1.amazonaws.com port=5432 dbname=db09ndbttdsrah user=wszbrnhhydxwjf password=e40c850f827525377b64aadca0b2ce32f90843fab4e98f07c0251651aaaec21c") or die('No se ha podido conectar: ' . pg_last_error());
+//conectarse a una base de datos llamada "mary" en el host "sheep" con el nombre de usuario y password
+if (!$connect) {
+  echo "Ocurrió un error.\n";
+  exit;
+}
+
+
+$consulta = ("SELECT * FROM estatusdevice");
+$ejeconsulta= pg_query($connect,$consulta) or die('La consulta fallo: ' . pg_last_error());
+
 $json = file_get_contents('php://input');
 $obj = json_decode($json,true);
-//$rate = $obj->{'rate'};
+
 
 if (!empty($obj)) {
 
@@ -18,7 +35,7 @@ file_put_contents("output.txt",$hola .  " " . $hora);
 
 
 
-echo $hola;
+echo $ejeconsulta;
 
 
 }
