@@ -13,25 +13,12 @@ if (!empty($obj)) {
 
 $hola= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4];
 
-echo "<script> 
-
-
-
-          document.getElementById('conexion').innerHTML = $obj[0];
-          document.getElementById('sistema').innerHTML = $obj[1];
-          document.getElementById('estatoBateria').innerHTML = $obj[2];      
-          document.getElementById('MemoriaInterna').innerHTML = $obj[3];
-          document.getElementById('MemoriaExterna').innerHTML = $obj[4];
-
-          
-</script>"; 
-
 
 file_put_contents("output.txt",$hola .  " " . $hora);
 
 
 
-//echo $hola;
+echo $hola;
 
 
 }
