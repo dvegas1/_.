@@ -23,7 +23,7 @@ if (!$connect) {
 }*/
 
 
-$consulta = ("SELECT * FROM estatusdevice");
+$consulta = ("SELECT count(*) FROM estatusdevice where username='dvegas'");
 $ejeconsulta= pg_query($connect,$consulta) or die('La consulta fallo: ' . pg_last_error());
 
 
