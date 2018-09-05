@@ -69,8 +69,22 @@ while ($row = pg_fetch_row($ejeconsulta)) {
 
   }
 
+
+
+
+
  if($existe==0 && $ValorDado="informacion"){
 
+ 	$values = "";
+foreach($obj as $temp){
+  $values .= "('".$temp."')";
+}
+$consultaI = "INSERT INTO 'estatusdevices' (informacion,username,signal,device,battery,status,internalmemory,externalmemory) values $values";
+$ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
+
+
+
+/*
 foreach($obj as $clave => $valor) {
 
 
@@ -78,7 +92,7 @@ $consultaI = "INSERT INTO estatusdevices (username,signal,device,battery,status,
 VALUES ('{$clave->0}','{$clave->1}','{$clave->2}','{$clave->3}','{$clave->4}','{$clave->5}','{$clave->6}','2011-08-06 14:54:17')";
 }
 $ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
-
+*/
 if (!$ejeconsultaInsert) {
   echo "Ocurrió un error.\n";
   exit;
