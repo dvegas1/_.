@@ -43,11 +43,7 @@ while ($row = pg_fetch_row($ejeconsulta)) {
   
   if(!empty($row[0])){
   	  $existe=1;
-  	 if($obj[0]==="informacion")){
 	echo "Count: $row[0]";
-  	 }else{
-  	 	echo "no existe informacion en obj[0]";
-  	 }
   }
 
   }
