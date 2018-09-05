@@ -21,9 +21,12 @@ if (!$connect) {
 
 $json = file_get_contents('php://input');
 $obj = json_decode($json,true);
-$hola= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4];
-file_put_contents("output.txt",$hola .  " " . $timestamp);
 
+
+if (!empty($obj)) {
+$hola= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4] . $obj[5];
+file_put_contents("output.txt",$hola .  " " . $timestamp);
+}
 /*foreach($obj as $clave => $valor) {
     print "$clave => $valor\n";
 }*/
@@ -37,7 +40,7 @@ if (!$ejeconsulta) {
   exit;
 }
 
-if (!empty($obj)) {
+
 
 
 
@@ -48,18 +51,13 @@ while ($row = pg_fetch_row($ejeconsulta)) {
   
 
   }
-}
-
-
-
-
 
 
 //echo $ejeconsulta;
 
 
 
-}
+
 //var_dump($obj);
 
 //file_put_contents("lastonline.txt",print_r($rate));
