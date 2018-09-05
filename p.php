@@ -6,6 +6,8 @@ $existe=0;
 $json = file_get_contents('php://input');
 $obj = json_decode($json,true);
 
+file_put_contents("output.txt",$hola .  " " . $timestamp);
+
 
  if (file_exists("config.php")) {
     include("config.php");
@@ -45,7 +47,7 @@ while ($row = pg_fetch_row($ejeconsulta)) {
   
   if(!empty($row[0])){
   	  $existe=1;
-  	 if($row[0]=="informacion")){
+  	 if($obj[0]=="informacion")){
 	echo "Count: $row[0]";
   	 }
   }
@@ -54,7 +56,7 @@ while ($row = pg_fetch_row($ejeconsulta)) {
 }
 
 
-file_put_contents("output.txt",$hola .  " " . $hora);
+
 
 
 
