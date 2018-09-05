@@ -79,8 +79,17 @@ while ($row = pg_fetch_row($ejeconsulta)) {
 foreach($obj as $temp){
   $values .= "('".$temp."')";
 }
-$consultaI = "INSERT INTO 'estatusdevices' (informacion,username,signal,device,battery,status,internalmemory,externalmemory) values $values";
+$consultaI = "INSERT INTO estatusdevices (informacion,username,signal,device,battery,status,internalmemory,externalmemory) values $values";
 $ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
+
+if (!$ejeconsultaInsert) {
+  echo "Ocurrió un error.\n";
+  exit;
+}else{
+	echo "OK."
+}
+
+  }
 
 
 
@@ -93,12 +102,7 @@ VALUES ('{$clave->0}','{$clave->1}','{$clave->2}','{$clave->3}','{$clave->4}','{
 }
 $ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
 */
-if (!$ejeconsultaInsert) {
-  echo "Ocurrió un error.\n";
-  exit;
-}
 
-  }
 
 
 
