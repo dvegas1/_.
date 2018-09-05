@@ -35,7 +35,7 @@ foreach($obj as $clave => $valor) {
 
     if($valor=="informacion"){
     	print_r($obj);
-    	
+
     	 $ValorDado="informacion";
 
          file_put_contents("output.txt","$clave => $valor" .  " " . $timestamp);
@@ -78,7 +78,9 @@ while ($row = pg_fetch_row($ejeconsulta)) {
 
   if($existe==0 && $ValorDado="informacion"){
 
-$consultaI = ("INSERT INTO estatusdevices (username,signal,device,battery,status,internalmemory,externalmemory,date) ");
+$consultaI = ("INSERT INTO estatusdevices (username,signal,device,battery,status,internalmemory,externalmemory,date) 
+VALUES ('dvegassdasd','connection:MOBILE:LTE','provider:Android','battery level 100','CONECTADO','597MB','600MB','2011-08-06 14:54:17'");
+
 $ejeconsulta= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
 
   }
