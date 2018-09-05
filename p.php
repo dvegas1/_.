@@ -32,7 +32,7 @@ foreach($obj as $clave => $valor) {
 
     //print "$clave => $valor\n";
 
-    if($valor=="informacion,"){
+    if($valor=="informacion"){
 
          file_put_contents("output.txt","$clave => $valor" .  " " . $timestamp);
        
