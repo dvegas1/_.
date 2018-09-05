@@ -26,6 +26,10 @@ if (!$connect) {
 $consulta = ("SELECT count(*) FROM estatusdevice where username='dvegas'");
 $ejeconsulta= pg_query($connect,$consulta) or die('La consulta fallo: ' . pg_last_error());
 
+if (!$ejeconsulta) {
+  echo "Ocurrió un error.\n";
+  exit;
+}else{
 
 
 $json = file_get_contents('php://input');
@@ -39,10 +43,13 @@ $hola= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4];
 
 file_put_contents("output.txt",$hola .  " " . $hora);
 
+while ($row = pg_fetch_row($ejeconsulta)) {
+  echo "Count: $row[0]";
+}
 
+//echo $ejeconsulta;
 
-echo $ejeconsulta;
-
+}
 
 }
 //var_dump($obj);
