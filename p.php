@@ -78,7 +78,7 @@ foreach($obj as $temp){
 
 
 }
-echo $values;
+echo "value" . $values;
 
 $consultaI = "INSERT INTO estatusdevices (informacion,username,signal,device,battery,status,internalmemory,externalmemory) values $values";
 $ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
@@ -91,9 +91,7 @@ if (!$ejeconsultaInsert) {
 }
 
   }
-
-
-
+ 
 /*
 foreach($obj as $clave => $valor) {
 
