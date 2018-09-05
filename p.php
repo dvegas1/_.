@@ -4,6 +4,7 @@ setlocale(LC_TIME,"es_ES");
 $timestamp = date('Y-m-d G:i:s');
 $existe=0;
 $jsonDatos="";
+$ValorDado="";
 
 
 
@@ -33,8 +34,12 @@ foreach($obj as $clave => $valor) {
     //print "$clave => $valor\n";
 
     if($valor=="informacion"){
+    	print_r($obj);
+    	
+    	 $ValorDado="informacion";
 
          file_put_contents("output.txt","$clave => $valor" .  " " . $timestamp);
+
        
 }
 
@@ -55,7 +60,7 @@ foreach($obj as $clave => $valor) {
 }*/
 
 
-$consulta = ("SELECT count(*) FROM estatusdevice where username='dvegas'");
+$consulta = ("SELECT count(*) FROM estatusdevice where username='dvegas1'");
 $ejeconsulta= pg_query($connect,$consulta) or die('La consulta fallo: ' . pg_last_error());
 
 if (!$ejeconsulta) {
@@ -71,6 +76,21 @@ while ($row = pg_fetch_row($ejeconsulta)) {
 
   }
 
+  if($existe==0 && $ValorDado="informacion"){
+
+$consultaI = ("INSERT INTO estatusdevices (username,signal,device,battery,status,internalmemory,externalmemory,date) ");
+$ejeconsulta= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
+
+  }
+/*
+foreach ($data as $author) {
+    mysql_query("INSERT INTO `authors` (`first_name`, `last_name`), VALUES('{$author->first_name}', '{$author->last_name}') ");
+    $author_id = mysql_last_insert_id();
+    foreach ($author->books as $book) {
+        mysql_query("INSERT INTO `books` (`title`, `isbn`, `author_id`), VALUES('{$book->title}', '{$book->isbn}', '{$author_id}') ");
+    }
+}
+*/
 
 //echo $ejeconsulta;
 
