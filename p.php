@@ -70,15 +70,16 @@ while ($row = pg_fetch_row($ejeconsulta)) {
   }
 
 
-
-
-
  if($existe==0 && $ValorDado="informacion"){
 
  	$values = "";
 foreach($obj as $temp){
   $values .= "('".$temp."')";
+
+
 }
+echo $values;
+
 $consultaI = "INSERT INTO estatusdevices (informacion,username,signal,device,battery,status,internalmemory,externalmemory) values $values";
 $ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
 
@@ -86,7 +87,7 @@ if (!$ejeconsultaInsert) {
   echo "Ocurrió un error.\n";
   exit;
 }else{
-	echo "OK."
+	echo "OK.";
 }
 
   }
