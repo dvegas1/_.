@@ -71,13 +71,11 @@ if (!$ejeconsulta) {
 
 while ($row = pg_fetch_row($ejeconsulta)) {
   	
-  	if($row[0]==0){  		
-	$existe=0;
-	echo "Count: $row[0]";
-  	}else{
+  	if($row[0]==1){  		
   	$existe=1;	
-	echo "Count: $row[0]";
+	echo "Count existe: $row[0]";
 }
+echo "Count no existe: $row[0]";
   }
 
   if($existe==0 && $ValorDado="informacion"){
