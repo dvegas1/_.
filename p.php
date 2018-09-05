@@ -42,22 +42,13 @@ foreach($obj as $clave => $valor) {
 
        
 }
-
-   
-
-
 }
-
-
-
-
-
-
 
 }
 /*foreach($obj as $clave => $valor) {
     print "$clave => $valor\n";
 }*/
+
 
 
 $consulta = ("SELECT count(*) FROM estatusdevice where username='dvegas'");
@@ -75,13 +66,16 @@ while ($row = pg_fetch_row($ejeconsulta)) {
   	$existe=1;	
 	echo "Count existe: $row[0]";
 }
-echo "Count no existe: $row[0]";
+
   }
 
   if($existe==0 && $ValorDado="informacion"){
 
+foreach($obj as $clave => $valor) {
+
+}
 $consultaI = "INSERT INTO estatusdevices (username,signal,device,battery,status,internalmemory,externalmemory,date) 
-VALUES ('dvegassdasd123','MOBILE:LTE','Android','100 %','CONECTADO','597MB','600MB','2011-08-06 14:54:17')";
+VALUES ('$clave->0','$clave->1','$clave->2','$clave->3','$clave->4','$clave->5','$clave->6','2011-08-06 14:54:17')";
 
 $ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
 
@@ -91,6 +85,10 @@ if (!$ejeconsultaInsert) {
 }
 
   }
+
+
+
+
 /*
 foreach ($data as $author) {
     mysql_query("INSERT INTO `authors` (`first_name`, `last_name`), VALUES('{$author->first_name}', '{$author->last_name}') ");
