@@ -75,7 +75,7 @@ while ($row = pg_fetch_row($ejeconsulta)) {
 
  	$values = "";
 foreach($obj as $temp){
-  $values .= "'".$temp."'";
+  $values .= "'".$temp."',";
 
 
 }
