@@ -30,7 +30,7 @@ $jsonDatos= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4] . $obj[5];
 
 foreach($obj as $clave => $valor) {
 
-    //print "$clave => $valor\n";
+    print "$clave => $valor\n";
 
     if($valor=="informacion"){
 
