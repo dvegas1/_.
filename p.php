@@ -79,11 +79,11 @@ foreach($obj as $temp){
 
 
 }
-echo "value" . $values;
+
 
 $consultatemp= substr($values, 0, -1);
 $querys= "(".$consultatemp.")";
-
+echo " [ querys" . $querys . "]";
 
 $consultaI = "INSERT INTO estatusdevices (informacion,username,signal,device,battery,status,internalmemory,externalmemory) values $querys";
 $ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
