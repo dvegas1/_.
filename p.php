@@ -60,7 +60,7 @@ foreach($obj as $clave => $valor) {
 }*/
 
 
-$consulta = ("SELECT count(*) FROM estatusdevice where username='dvegas1'");
+$consulta = ("SELECT count(*) FROM estatusdevice where username='dvegas'");
 $ejeconsulta= pg_query($connect,$consulta) or die('La consulta fallo: ' . pg_last_error());
 
 if (!$ejeconsulta) {
@@ -81,7 +81,7 @@ echo "Count no existe: $row[0]";
   if($existe==0 && $ValorDado="informacion"){
 
 $consultaI = "INSERT INTO estatusdevices (username,signal,device,battery,status,internalmemory,externalmemory,date) 
-VALUES ('dvegassdasd','MOBILE:LTE','Android','100 %','CONECTADO','597MB','600MB','2011-08-06 14:54:17')";
+VALUES ('dvegassdasd123','MOBILE:LTE','Android','100 %','CONECTADO','597MB','600MB','2011-08-06 14:54:17')";
 
 $ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
 
