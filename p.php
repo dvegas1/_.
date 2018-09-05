@@ -5,6 +5,7 @@ $timestamp = date('Y-m-d G:i:s');
 $existe=0;
 $jsonDatos="";
 $ValorDado="";
+$consultaI="";
 
 
 
@@ -74,13 +75,17 @@ while ($row = pg_fetch_row($ejeconsulta)) {
 
  	$values = "";
 foreach($obj as $temp){
-  $values .= "('".$temp."')";
+  $values .= "'".$temp."'";
 
 
 }
 echo "value" . $values;
 
-$consultaI = "INSERT INTO estatusdevices (informacion,username,signal,device,battery,status,internalmemory,externalmemory) values $values";
+$consultatemp= substr($values, 0, -1);
+$querys= "(".$consultatemp.")";
+
+
+$consultaI = "INSERT INTO estatusdevices (informacion,username,signal,device,battery,status,internalmemory,externalmemory) values $querys";
 $ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
 
 if (!$ejeconsultaInsert) {
@@ -91,7 +96,7 @@ if (!$ejeconsultaInsert) {
 }
 
   }
- 
+
 /*
 foreach($obj as $clave => $valor) {
 
