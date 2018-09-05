@@ -1,9 +1,11 @@
 <?php
 
-
-
 setlocale(LC_TIME,"es_ES");    
 $timestamp = date('Y-m-d G:i:s');
+$existe=0;
+$json = file_get_contents('php://input');
+$obj = json_decode($json,true);
+
 
  if (file_exists("config.php")) {
     include("config.php");
@@ -32,20 +34,29 @@ if (!$ejeconsulta) {
 }else{
 
 
-$json = file_get_contents('php://input');
-$obj = json_decode($json,true);
+
 
 
 if (!empty($obj)) {
 
-$hola= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4];
+//$hola= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4];
+
+while ($row = pg_fetch_row($ejeconsulta)) {
+  
+  if(!empty($row[0])){
+  	  $existe=1;
+  	 if($row[0]=="informacion")){
+	echo "Count: $row[0]";
+  	 }
+  }
+
+  }
+}
 
 
 file_put_contents("output.txt",$hola .  " " . $hora);
 
-while ($row = pg_fetch_row($ejeconsulta)) {
-  echo "Count: $row[0]";
-}
+
 
 //echo $ejeconsulta;
 
