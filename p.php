@@ -29,16 +29,16 @@ if (!empty($obj)) {
 $jsonDatos= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4] . $obj[5];
 
 foreach($obj as $clave => $valor) {
+
     print "$clave => $valor\n";
 
-    switch ($valor) {
+    if($valor=="informacion"){
 
-	case "informacion":
          file_put_contents("output.txt",$jsonDatos .  " " . $timestamp);
-         break;
+       
+}
 
-
-   }
+   
 
 
 }
