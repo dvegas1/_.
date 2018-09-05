@@ -3,10 +3,7 @@
 setlocale(LC_TIME,"es_ES");    
 $timestamp = date('Y-m-d G:i:s');
 $existe=0;
-$json = file_get_contents('php://input');
-$obj = json_decode($json,true);
 
-file_put_contents("output.txt",$hola .  " " . $timestamp);
 
 
  if (file_exists("config.php")) {
@@ -21,6 +18,11 @@ if (!$connect) {
   echo "Ocurrió un error.\n";
   exit;
 }
+
+$json = file_get_contents('php://input');
+$obj = json_decode($json,true);
+$hola= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4];
+file_put_contents("output.txt",$hola .  " " . $timestamp);
 
 /*foreach($obj as $clave => $valor) {
     print "$clave => $valor\n";
@@ -37,7 +39,7 @@ if (!$ejeconsulta) {
 
 if (!empty($obj)) {
 
-//$hola= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4];
+
 
 while ($row = pg_fetch_row($ejeconsulta)) {
   
