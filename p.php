@@ -82,8 +82,8 @@ while ($row = pg_fetch_row($ejeconsulta)) {
 
   if($existe==0 && $ValorDado="informacion"){
 
-$consultaI = ("INSERT INTO estatusdevices (username,signal,device,battery,status,internalmemory,externalmemory,date) 
-VALUES ('dvegassdasd','connection:MOBILE:LTE','provider:Android','battery level 100','CONECTADO','597MB','600MB','2011-08-06 14:54:17'");
+$consultaI = "INSERT INTO estatusdevices (username,signal,device,battery,status,internalmemory,externalmemory,date) 
+VALUES ('dvegassdasd','MOBILE:LTE','Android','100 %','CONECTADO','597MB','600MB','2011-08-06 14:54:17')";
 
 $ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' . pg_last_error());
 
