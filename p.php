@@ -25,8 +25,22 @@ $obj = json_decode($json,true);
 
 
 if (!empty($obj)) {
+
 $jsonDatos= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4] . $obj[5];
-file_put_contents("output.txt",$jsonDatos .  " " . $timestamp);
+
+switch ($obj[0]) {
+
+	case "informacion":
+         file_put_contents("output.txt",$jsonDatos .  " " . $timestamp);
+         break;
+
+
+   }
+
+
+
+
+
 }
 /*foreach($obj as $clave => $valor) {
     print "$clave => $valor\n";
