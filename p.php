@@ -33,11 +33,7 @@ $ejeconsulta= pg_query($connect,$consulta) or die('La consulta fallo: ' . pg_las
 if (!$ejeconsulta) {
   echo "Ocurrió un error.\n";
   exit;
-}else{
-
-
-
-
+}
 
 if (!empty($obj)) {
 
@@ -47,8 +43,10 @@ while ($row = pg_fetch_row($ejeconsulta)) {
   
   if(!empty($row[0])){
   	  $existe=1;
-  	 if($obj[0]=="informacion")){
+  	 if($obj[0]==="informacion")){
 	echo "Count: $row[0]";
+  	 }else{
+  	 	echo "no existe informacion en obj[0]";
   	 }
   }
 
@@ -62,7 +60,7 @@ while ($row = pg_fetch_row($ejeconsulta)) {
 
 //echo $ejeconsulta;
 
-}
+
 
 }
 //var_dump($obj);
