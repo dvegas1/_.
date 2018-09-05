@@ -3,6 +3,7 @@
 setlocale(LC_TIME,"es_ES");    
 $timestamp = date('Y-m-d G:i:s');
 $existe=0;
+$jsonDatos="";
 
 
 
@@ -24,8 +25,8 @@ $obj = json_decode($json,true);
 
 
 if (!empty($obj)) {
-$hola= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4] . $obj[5];
-file_put_contents("output.txt",$hola .  " " . $timestamp);
+$jsonDatos= $obj[0] . $obj[1] . $obj[2] . $obj[3] . $obj[4] . $obj[5];
+file_put_contents("output.txt",$jsonDatos .  " " . $timestamp);
 }
 /*foreach($obj as $clave => $valor) {
     print "$clave => $valor\n";
@@ -41,14 +42,10 @@ if (!$ejeconsulta) {
 }
 
 
-
-
-
 while ($row = pg_fetch_row($ejeconsulta)) {
   
   	  $existe=1;
 	echo "Count: $row[0]";
-  
 
   }
 
