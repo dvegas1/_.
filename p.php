@@ -7,7 +7,7 @@ $jsonDatos="";
 $ValorDado="";
 $consultaI="";
 
-
+echo "hola";
 
  if (file_exists("config.php")) {
     include("config.php");
@@ -25,6 +25,7 @@ if (!$connect) {
 $json = file_get_contents('php://input');
 $obj = json_decode($json,true);
 
+file_put_contents("output.txt",print_r($obj));
 
 if (!empty($obj)) {
 
@@ -73,7 +74,7 @@ while ($row = pg_fetch_row($ejeconsulta)) {
 
  if($existe==0 && $ValorDado="informacion"){
 
- 	$values = "";
+$values = "";
 foreach($obj as $temp){
   $values .= "'".$temp."',";
 
@@ -103,7 +104,7 @@ if (!$ejeconsultaInsert) {
 
   }
 
-/*
+
 foreach($obj as $clave => $valor) {
 
 
@@ -117,7 +118,7 @@ $ejeconsultaInsert= pg_query($connect,$consultaI) or die('La consulta fallo: ' .
 
 
 
-/*
+
 foreach ($data as $author) {
     mysql_query("INSERT INTO `authors` (`first_name`, `last_name`), VALUES('{$author->first_name}', '{$author->last_name}') ");
     $author_id = mysql_last_insert_id();
@@ -125,7 +126,7 @@ foreach ($data as $author) {
         mysql_query("INSERT INTO `books` (`title`, `isbn`, `author_id`), VALUES('{$book->title}', '{$book->isbn}', '{$author_id}') ");
     }
 }
-*/
+
 
 //echo $ejeconsulta;
 

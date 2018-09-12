@@ -4,7 +4,12 @@ html {
 
 
 body {
-  background: #fff;
+
+    -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+  
+background: #192433;
   font-family: "Raleway", sans-serif;
   line-height: 1.7;
   color: #6f6f6f; 
